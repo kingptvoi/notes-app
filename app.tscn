@@ -198,7 +198,6 @@ text = "x"
 title = "Open a File"
 initial_position = 4
 size = Vector2i(1100, 730)
-force_native = true
 theme = SubResource("Theme_i4801")
 ok_button_text = "Open"
 file_mode = 0
@@ -209,7 +208,6 @@ filters = PackedStringArray("*.txt; Text files", "*.md; Markdown")
 [node name="saveDialog" type="FileDialog" parent="."]
 initial_position = 4
 size = Vector2i(1100, 730)
-force_native = true
 access = 1
 root_subfolder = "notesFolder"
 filters = PackedStringArray("*.txt; Text files", "*.md; Markdown")
