@@ -4,7 +4,7 @@ very basic notes app made in Godot
 
 you can open/save .txt and .md files
 
-to save: Command/Ctrl + S
+to save: Command/Ctrl + S <br>
 to load: Command/Ctrl + L
 
 ## running
