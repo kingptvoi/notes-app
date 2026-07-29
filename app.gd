@@ -13,7 +13,8 @@ var current_file: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	DisplayServer.window_set_min_size(Vector2i(600, 750))
+	DisplayServer.window_set_max_size(Vector2i(DisplayServer.screen_get_size()))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -25,6 +26,8 @@ func _button_pressed(value: String) -> void:
 		saveDialog.visible = true
 	if value == "load":
 		fileDialog.visible = true
+	if value == "new":
+		pass
 
 func save_note(text: String, file_name: String) -> void:
 	var file = FileAccess.open(file_name, FileAccess.WRITE)
@@ -55,7 +58,6 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and dragging:
 			DisplayServer.window_start_drag()
-
 
 #func _on_title_background_mouse_entered() -> void:
 	#dragging = true

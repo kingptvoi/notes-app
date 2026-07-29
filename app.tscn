@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://brjpgi2pqdyvu"]
+[gd_scene load_steps=14 format=3 uid="uid://brjpgi2pqdyvu"]
 
 [ext_resource type="Script" uid="uid://c2voodovpbeql" path="res://app.gd" id="1_i3jse"]
+[ext_resource type="FontFile" uid="uid://ss65xcelr2ki" path="res://fonts/Inconsolata-VariableFont_wdth,wght.ttf" id="2_i4801"]
 [ext_resource type="Theme" uid="uid://cn7ln0hwese4l" path="res://button_theme.tres" id="2_qbwvd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1nad"]
@@ -46,6 +47,8 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+
+[sub_resource type="Theme" id="Theme_i4801"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -100,16 +103,17 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 51.0
-offset_top = 22.0
+offset_top = 28.0
 offset_right = -51.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/background_color = Color(0.945098, 0.917647, 0.737255, 1)
 theme_override_colors/font_placeholder_color = Color(0.377919, 0.377919, 0.377919, 1)
-theme_override_colors/font_color = Color(0.114897, 0.114897, 0.114897, 1)
+theme_override_colors/font_color = Color(0.113049, 0.113049, 0.113049, 1)
 theme_override_colors/selection_color = Color(0.898039, 0.843137, 0.54902, 0.682353)
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("2_i4801")
+theme_override_font_sizes/font_size = 32
 placeholder_text = "this is your note, type here to start editing"
 wrap_mode = 1
 scroll_smooth = true
@@ -137,6 +141,17 @@ theme = ExtResource("2_qbwvd")
 theme_override_font_sizes/font_size = 30
 shortcut = SubResource("Shortcut_d7sxu")
 text = "load"
+flat = true
+
+[node name="newButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 208.0
+offset_top = -56.0
+offset_right = 324.0
+offset_bottom = -6.0
+theme = ExtResource("2_qbwvd")
+theme_override_font_sizes/font_size = 30
+text = "new"
 flat = true
 
 [node name="MenuButton" type="MenuButton" parent="."]
@@ -181,20 +196,29 @@ text = "x"
 
 [node name="loadDialog" type="FileDialog" parent="."]
 title = "Open a File"
+initial_position = 4
+size = Vector2i(1100, 730)
+force_native = true
+theme = SubResource("Theme_i4801")
 ok_button_text = "Open"
 file_mode = 0
 access = 1
-use_native_dialog = true
+root_subfolder = "notesFolder"
+filters = PackedStringArray("*.txt; Text files", "*.md; Markdown")
 
 [node name="saveDialog" type="FileDialog" parent="."]
 initial_position = 4
+size = Vector2i(1100, 730)
+force_native = true
 access = 1
-use_native_dialog = true
+root_subfolder = "notesFolder"
+filters = PackedStringArray("*.txt; Text files", "*.md; Markdown")
 
 [connection signal="mouse_entered" from="titleBackground" to="." method="_on_title_background_mouse_entered"]
 [connection signal="mouse_exited" from="titleBackground" to="." method="_on_title_background_mouse_exited"]
 [connection signal="pressed" from="saveButton" to="." method="_button_pressed" binds= ["save"]]
 [connection signal="pressed" from="loadButton" to="." method="_button_pressed" binds= ["load"]]
+[connection signal="pressed" from="newButton" to="." method="_button_pressed" binds= ["new"]]
 [connection signal="pressed" from="quitButton" to="." method="_button_pressed" binds= ["quit_button"]]
 [connection signal="file_selected" from="loadDialog" to="." method="_on_load_dialog_file_selected"]
 [connection signal="file_selected" from="saveDialog" to="." method="_on_save_dialog_file_selected"]
