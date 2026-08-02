@@ -114,7 +114,11 @@ theme_override_colors/selection_color = Color(0.898039, 0.843137, 0.54902, 0.682
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_i4801")
 theme_override_font_sizes/font_size = 32
-placeholder_text = "this is your note, type here to start editing"
+placeholder_text = "this is your note, type here to start editing
+
+
+> Control/Command + S to save files
+> Control/Command + L to load files"
 wrap_mode = 1
 scroll_smooth = true
 scroll_v_scroll_speed = 1.0
@@ -211,6 +215,7 @@ size = Vector2i(1100, 730)
 access = 1
 root_subfolder = "notesFolder"
 filters = PackedStringArray("*.txt; Text files", "*.md; Markdown")
+use_native_dialog = true
 
 [connection signal="mouse_entered" from="titleBackground" to="." method="_on_title_background_mouse_entered"]
 [connection signal="mouse_exited" from="titleBackground" to="." method="_on_title_background_mouse_exited"]
