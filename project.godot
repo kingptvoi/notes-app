@@ -12,6 +12,8 @@ config_version=5
 
 config/name="notes"
 run/main_scene="uid://brjpgi2pqdyvu"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="godot-notes"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
